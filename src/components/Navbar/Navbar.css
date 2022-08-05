@@ -1,0 +1,46 @@
+.navbar-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 8rem;
+  margin-bottom: 1rem;
+  background-color: #140f07;
+}
+
+.navbar-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.75rem;
+  color: #fffaf2;
+}
+
+.navbar-title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title_name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fffaf2;
+}
+.navbar-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 780px) {
+  .navbar-container {
+    padding: 1rem 1rem;
+  }
+  .navbar-title_name {
+    font-size: 0.8rem;
+  }
+  .navbar-button-container button {
+    padding: 0.5rem 0.75rem;
+  }
+  
+}
