@@ -35,7 +35,6 @@ const PokemonList = () => {
       </>
     )
   }
-  console.log(data)
 
   return (
     <section >
