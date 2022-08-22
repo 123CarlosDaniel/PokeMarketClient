@@ -9,10 +9,10 @@ const useLogout = () => {
   const logout = async () => {
     dispatch(setAuth({ accessToken: '' }))
     try {
-      const response = await axios.get(LOGOUT_ENDPOINT, {
+      await axios.get(LOGOUT_ENDPOINT, {
         withCredentials: true,
       })
-      console.log(response)
+      // console.log(response)
     } catch (error) {
       console.log(error)
     }

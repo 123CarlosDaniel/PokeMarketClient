@@ -4,7 +4,7 @@ import { selectAccessToken } from '../../features/auth/authSlice'
 import Logout from '../../routes/Logout'
 
 const Buttons = () => {
-  const location = useLocation()
+  // const location = useLocation()
   const navigate = useNavigate()
   const auth = useSelector(selectAccessToken)
   return (
