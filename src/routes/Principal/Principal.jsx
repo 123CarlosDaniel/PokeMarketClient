@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const Principal = () => {
   const navigate = useNavigate()
   return (
-    <div className="container">
+    <section >
       <h3 className="principal-title">¡¡ Welcome to this awesome website !!</h3>
       <div className="principal-layout">
         <div className="principal-card">
@@ -29,7 +29,7 @@ const Principal = () => {
           <h4 className="principal-content-title">Pikachu is waiting for you</h4>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

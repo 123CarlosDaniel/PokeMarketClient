@@ -53,7 +53,7 @@ const LoginForm = () => {
     }
   }
   return (
-    <div>
+    <section>
       <h3 className="login-title">Ingresa para ver a tus pokemones</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-container">
@@ -79,7 +79,7 @@ const LoginForm = () => {
         <button type="submit">Ingresar</button>
       </form>
       {loading && <p>Loading...</p>}
-    </div>
+    </section>
   )
 }
 

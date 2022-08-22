@@ -38,7 +38,7 @@ const PokemonList = () => {
   console.log(data)
 
   return (
-    <div className="container">
+    <section >
       <div className="list-title">PokemonList</div>
       <div>
         <button onClick={() => setOffset(prev => positive(prev - 20))}>Anterior</button>
@@ -53,7 +53,7 @@ const PokemonList = () => {
         <button onClick={() => setOffset(prev => positive(prev - 20))}>Anterior</button>
         <button onClick={() => setOffset(prev => prev + 20)}>Siguiente</button>
       </div>
-    </div>
+    </section>
   )
 }
 

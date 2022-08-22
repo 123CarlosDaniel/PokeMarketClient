@@ -17,6 +17,12 @@ export const getPokemon = gql`
       weight
       id
       sprite
+      abilities
+      hp
+      attack
+      special
+      defense
+      types
     }
   }
 `

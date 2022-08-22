@@ -55,8 +55,8 @@ const SignUpForm = () => {
     }
   }
   return (
-    <div>
-      <h3 className="login-title">Ingresa para ver a tus pokemones</h3>
+    <section>
+      <h3 className="login-title">Registrate para ver pokemones</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-container">
           <label htmlFor="name">Name:</label>
@@ -87,10 +87,10 @@ const SignUpForm = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Ingresar</button>
+        <button type="submit">Registrar</button>
       </form>
       {loading && <p>Loading...</p>}
-    </div>
+    </section>
   )
 }
 
