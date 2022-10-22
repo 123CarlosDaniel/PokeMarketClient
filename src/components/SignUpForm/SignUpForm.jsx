@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const SIGNUP_ENDPOINT = '/register'
 const SignUpForm = () => {
+  console.log(import.meta.env)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [inputData, setInputData] = useState({
