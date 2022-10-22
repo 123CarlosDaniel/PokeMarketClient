@@ -3,6 +3,7 @@ import './Pokemons.css'
 import { useState } from 'react'
 import { useGQLQuery } from '../../api/pokeApi'
 import { getPokemons } from '../../api/queriesPokemon'
+import Loader from '../Loader'
 
 const positive = offset => {
   return offset < 0 ? 0 : offset
@@ -24,15 +25,13 @@ const PokemonList = () => {
     return (
       <>
         <h2>Error</h2>
-        <p>{error?.message}</p>
+        <p className='error'>{error?.message}</p>
       </>
     )
   }
   if (isFetching) {
     return (
-      <>
-        <h2>Cargando ...</h2>
-      </>
+      <Loader/>
     )
   }
 
@@ -44,8 +43,8 @@ const PokemonList = () => {
         <button onClick={() => setOffset(prev => prev + 20)}>Siguiente</button>
       </div>
       <div className="pokemon-list">
-        {data.getPokemons.map(el => {
-          return <PokemonCard pokemon={el} />
+        {data.getPokemons.map((el,index) => {
+          return <PokemonCard key={index} pokemon={el} />
         })}
       </div>
       <div>

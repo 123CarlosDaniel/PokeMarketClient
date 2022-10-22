@@ -1,21 +1,19 @@
 import { useSelector } from 'react-redux'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { selectAccessToken } from '../../features/auth/authSlice'
 import Logout from '../../routes/Logout'
 
 const Buttons = () => {
-  // const location = useLocation()
-  const navigate = useNavigate()
   const auth = useSelector(selectAccessToken)
   return (
     <>
-      <button onClick={() => navigate('/')}>Principal</button>
+      <Link className='principal-button' to={'/'}>Principal</Link>
       {auth?.accessToken ? (
         <Logout />
       ) : (
         <>
-          <button onClick={() => navigate('/login')}>Login</button>
-          <button onClick={() => navigate('/signup')}>Signup</button>
+          <Link className='principal-button' to={'/login'}>Login</Link>
+          <Link className='principal-button' to={'/signup'}>Signup</Link>
         </>
       )}
     </>

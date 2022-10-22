@@ -52,12 +52,6 @@
   letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
 }
-.principal-button {
-  margin-top: 1rem;
-}
-.principal-button:hover {
-  border-color: aliceblue;
-}
 
 @media screen and (max-width: 780px) {
   .principal-layout {
