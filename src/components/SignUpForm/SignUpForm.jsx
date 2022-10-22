@@ -35,7 +35,6 @@ const SignUpForm = () => {
           withCredentials: true,
         }
       )
-      console.log(response.data)
       if (response.status === 202) {
         const { accessToken } = response.data
         dispatch(setAuth({ accessToken }))
