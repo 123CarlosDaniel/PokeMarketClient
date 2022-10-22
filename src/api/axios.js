@@ -1,6 +1,5 @@
 import axios from 'axios'
-const mode= import.meta.env.MODE 
-const BASE_URL_API = mode === 'development' ? 'http://localhost:3500/api' : 'https://api-rest-authentication.herokuapp.com/api'
+const BASE_URL_API = import.meta.env.VITE_SERVER_HOST
 
 export default axios.create({
   baseURL: BASE_URL_API,

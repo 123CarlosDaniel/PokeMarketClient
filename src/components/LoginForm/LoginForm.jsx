@@ -14,7 +14,7 @@ const LoginForm = () => {
     email: '',
     password: '',
   })
-  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const handleChange = e => {
     setInputData({
       ...inputData,
@@ -24,10 +24,8 @@ const LoginForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-
     try {
       const { email, password } = inputData
-      setLoading(true)
       const response = await axios.post(
         LOGIN_ENDPOINT,
         { email, password },
@@ -46,10 +44,13 @@ const LoginForm = () => {
         })
         navigate('/pokemons')
       }
-      setLoading(false)
     } catch (error) {
       console.log(error)
-      setLoading(false)
+      let msg = RegExp('400').test(error) ? 'Incorrect Credentials' : 'Something went wrong'
+      setError(msg)
+      setTimeout(() => {
+        setError('')
+      }, 3500)
     }
   }
   return (
@@ -63,6 +64,7 @@ const LoginForm = () => {
             name="email"
             id="email"
             placeholder="Example@example.com"
+            required
             value={inputData.email}
             onChange={handleChange}
           />
@@ -72,13 +74,14 @@ const LoginForm = () => {
             name="password"
             id="password"
             placeholder="Password"
+            required
             value={inputData.password}
             onChange={handleChange}
           />
         </div>
         <button type="submit">Ingresar</button>
+        {error !== '' && <div className='error'>{error}</div>}
       </form>
-      {loading && <p>Loading...</p>}
     </section>
   )
 }

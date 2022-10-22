@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const SIGNUP_ENDPOINT = '/register'
 const SignUpForm = () => {
+  console.log(import.meta.env)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [inputData, setInputData] = useState({
@@ -15,7 +16,7 @@ const SignUpForm = () => {
     email: '',
     password: '',
   })
-  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const handleChange = e => {
     setInputData({
       ...inputData,
@@ -25,10 +26,8 @@ const SignUpForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-
     try {
       const { name, email, password } = inputData
-      setLoading(true)
       const response = await axios.post(
         SIGNUP_ENDPOINT,
         { name, email, password },
@@ -48,10 +47,13 @@ const SignUpForm = () => {
         })
         navigate('/pokemons')
       }
-      setLoading(false)
     } catch (error) {
       console.log(error)
-      setLoading(false)
+      let msg = RegExp('400').test(error) ? 'Email is already used' : 'Something went wrong'
+      setError(msg)
+      setTimeout(() => {
+        setError('')
+      }, 3500)
     }
   }
   return (
@@ -65,6 +67,7 @@ const SignUpForm = () => {
             name="name"
             id="name"
             placeholder="Write your name"
+            required
             value={inputData.name}
             onChange={handleChange}
           />
@@ -75,6 +78,7 @@ const SignUpForm = () => {
             id="email"
             placeholder="Example@example.com"
             value={inputData.email}
+            required
             onChange={handleChange}
           />
           <label htmlFor="password">Password:</label>
@@ -83,13 +87,14 @@ const SignUpForm = () => {
             name="password"
             id="password"
             placeholder="Password"
+            required
             value={inputData.password}
             onChange={handleChange}
           />
         </div>
         <button type="submit">Registrar</button>
+        {error !== '' && <div className='error'>{error}</div>}
       </form>
-      {loading && <p>Loading...</p>}
     </section>
   )
 }

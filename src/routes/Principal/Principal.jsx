@@ -1,10 +1,9 @@
 import './Principal.css'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Principal = () => {
-  const navigate = useNavigate()
   return (
-    <section >
+    <section>
       <h3 className="principal-title">¡¡ Welcome to this awesome website !!</h3>
       <div className="principal-layout">
         <div className="principal-card">
@@ -22,9 +21,9 @@ const Principal = () => {
               This website is a simple example of a React application. <br /> It's purpose is to show how to use React
               and its features.
             </p>
-            <button className="principal-button" onClick={() => navigate('/pokemons')}>
+            <Link to={'/pokemons'} className="principal-button">
               See Pokemons
-            </button>
+            </Link>
           </div>
           <h4 className="principal-content-title">Pikachu is waiting for you</h4>
         </div>
